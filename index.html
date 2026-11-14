@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070b18" />
+  <meta name="description" content="Project GHOST — an interactive archive of humanity's robotic explorers." />
+  <title>PROJECT GHOST — Galactic History of Our Silent Travelers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Project Ghost home">
+        <span class="brand-mark">G</span>
+        <span><b>PROJECT GHOST</b><small>GALACTIC HISTORY OF OUR SILENT TRAVELERS</small></span>
+      </a>
+      <nav><a href="#explore">Explore</a><a href="#archive">Archive</a><a href="#about">About</a></nav>
+      <div class="live"><span></span> DIGITAL ARCHIVE</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">A MUSEUM WITHOUT WALLS · EST. 2026</p>
+          <h1>THEY WENT<br><em>BEYOND.</em><br>THEY REMAIN.</h1>
+          <p class="hero-text">Every machine carried a piece of human curiosity into the unknown. Explore the hardware we left behind — and the discoveries it made possible.</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#explore">BEGIN EXPLORATION <span>↗</span></a>
+            <span class="microcopy">AN INTERACTIVE SPACE ARCHAEOLOGY ARCHIVE</span>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div><strong id="artifact-count">12</strong><span>ARCHIVED ARTIFACTS</span></div>
+          <div><strong>5</strong><span>DESTINATION ZONES</span></div>
+          <div><strong>1959—NOW</strong><span>AN ONGOING STORY</span></div>
+        </div>
+      </section>
+
+      <section id="explore" class="explorer-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">01 / THE CELESTIAL ARCHIVE</p><h2>Explore the <em>neighborhood.</em></h2></div>
+          <p class="section-note">Select a world or object to reveal the stories attached to it. The scene is a navigational illustration, not a scale model.</p>
+        </div>
+        <div class="universe-shell">
+          <div id="scene" aria-label="Interactive 3D solar system illustration">
+            <div class="scene-loading">INITIALIZING CELESTIAL ARCHIVE…</div>
+            <div class="scene-label">INTERACTIVE SCHEMATIC · NOT TO SCALE</div>
+            <div class="scene-controls"><button id="reset-view" title="Reset view">↺</button><span>DRAG TO ROTATE · SCROLL TO ZOOM</span></div>
+          </div>
+          <aside class="destination-panel">
+            <p class="eyebrow">DESTINATION INDEX</p>
+            <div id="destination-list" class="destination-list"></div>
+            <div class="selected-destination">
+              <span class="small-label">SELECTED REGION</span>
+              <h3 id="destination-title">The Moon</h3>
+              <p id="destination-description">A record of human and robotic arrivals on Earth's natural satellite.</p>
+              <div class="destination-count"><strong id="destination-count">4</strong><span>CATALOGUED OBJECTS</span></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="archive" class="archive-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">02 / THE OBJECT REGISTER</p><h2>Meet the <em>travelers.</em></h2></div>
+          <p class="section-note">Filter the archive by destination and operational status. Status labels distinguish inactive hardware from active spacecraft.</p>
+        </div>
+        <div class="filters">
+          <div id="filter-destinations" class="filter-group"></div>
+          <select id="status-filter" aria-label="Filter by status">
+            <option value="all">All statuses</option><option value="inactive">Inactive / mission ended</option><option value="active">Still operating / communicating</option><option value="destroyed">Destroyed / atmospheric entry</option>
+          </select>
+        </div>
+        <div id="artifact-grid" class="artifact-grid"></div>
+      </section>
+
+      <section id="story" class="story-section">
+        <div class="story-intro">
+          <p class="eyebrow">03 / FIELD NOTES</p>
+          <h2>Every ending<br>leaves a <em>trace.</em></h2>
+          <p>Select an artifact to open its mission record. We distinguish confirmed facts from approximate or uncertain locations.</p>
+        </div>
+        <article id="detail-card" class="detail-card">
+          <div class="detail-empty"><span>✳</span><h3>Choose a traveler</h3><p>Its story will appear here.</p></div>
+        </article>
+      </section>
+
+      <section class="historian-section">
+        <div class="historian-copy">
+          <p class="eyebrow">04 / ASK THE ARCHIVE</p>
+          <h2>Curiosity is<br>the <em>key.</em></h2>
+          <p>Explore the records with the Archive Guide. This prototype answers from its included, curated fact cards; it does not invent missing mission details.</p>
+        </div>
+        <div class="chat-panel">
+          <div class="chat-header"><span class="status-dot"></span> ARCHIVE GUIDE <span class="mono">LOCAL KNOWLEDGE MODE</span></div>
+          <div id="chat-log" class="chat-log"><div class="chat-message assistant">Welcome, explorer. Ask me about a mission, a machine, or what its discoveries taught us.</div></div>
+          <form id="chat-form"><input id="chat-input" autocomplete="off" placeholder="Try: What did Opportunity discover?" aria-label="Ask the archive" /><button>ASK ↗</button></form>
+          <div class="suggestions"><button data-question="Which machines are still operating?">Still operating?</button><button data-question="Tell me about the Apollo lunar rover.">Apollo rover</button><button data-question="What did Spirit discover?">Spirit's discoveries</button></div>
+        </div>
+      </section>
+
+      <section id="about" class="about-section">
+        <p class="eyebrow">05 / WHY THIS ARCHIVE EXISTS</p>
+        <h2>Not discarded.<br><em>Remembered.</em></h2>
+        <p>Space exploration is more than the missions that return home. Hardware left on other worlds records engineering decisions, scientific breakthroughs, and the reach of human imagination. Project GHOST makes those stories discoverable for the next generation.</p>
+        <div class="integrity-note"><b>SCIENCE & SOURCE INTEGRITY</b><span>Mission status and location descriptions are simplified for learning. This prototype does not claim precise landing coordinates. Every record should be checked against the official challenge resource list and primary mission sources before final submission.</span></div>
+      </section>
+    </main>
+    <footer><span>PROJECT GHOST · AN INDEPENDENT STUDENT PROJECT</span><span>BUILT WITH OPEN WEB TECHNOLOGIES · NO NASA ENDORSEMENT IMPLIED</span></footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
